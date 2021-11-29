@@ -9,10 +9,14 @@ use App\Http\Controllers\Admin\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Admin\Auth\RegisteredUserController;
 use App\Http\Controllers\Admin\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\OwnersController;
 
 Route::get('/', function () {
     return view('admin.welcome');
 });
+
+// middleware でログイン確認
+Route::resource('owners', OwnersController::class)->middleware('auth:admin');
 
 Route::get('/dashboard', function () {
     return view('admin.dashboard');
