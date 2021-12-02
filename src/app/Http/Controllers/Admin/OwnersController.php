@@ -20,7 +20,6 @@ class OwnersController extends Controller
      */
     public function index()
     {
-        //
         $owners = Owner::select('name', 'email', 'created_at')->get();
         return view('admin.owners.index', compact('owners'));
     }
@@ -32,7 +31,7 @@ class OwnersController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.owners.create');
     }
 
     /**
