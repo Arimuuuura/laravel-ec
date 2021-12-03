@@ -33,7 +33,7 @@ class OwnersController extends Controller
             'password' => ['required', 'confirmed', 'string', 'min:8'],
         ]);
 
-        Owner::create([
+        $owner = Owner::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
@@ -41,7 +41,10 @@ class OwnersController extends Controller
 
         return redirect()
             ->route('admin.owners.index')
-            ->with('message', 'オーナーを登録しました。');
+            ->with([
+                'message' => "{$owner->name} を登録しました。",
+                'status' => 'info',
+            ]);
     }
 
     public function show($id)
@@ -66,11 +69,23 @@ class OwnersController extends Controller
 
         return redirect()
             ->route('admin.owners.index')
-            ->with('message', 'オーナー情報を更新しました。');
+            ->with([
+                'message' => "{$owner->name} を更新しました。",
+                'status' => 'info',
+            ]);
     }
 
     public function destroy($id)
     {
-        //
+        $owner = Owner::findOrFail($id);
+        // ソフトデリート
+        $owner->delete();
+
+        return redirect()
+            ->route('admin.owners.index')
+            ->with([
+                'message' => "{$owner->name} を削除しました。",
+                'status' => 'alert',
+            ]);
     }
 }

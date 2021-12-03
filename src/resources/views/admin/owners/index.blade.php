@@ -11,7 +11,7 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     <section class="text-gray-600 body-font">
                         <div class="container px-5 mx-auto">
-                            <x-flash-message status="info" />
+                            <x-flash-message status="session('status')" />
                             <div class="mb-4 flex justify-end">
                                 <button onclick="location.href='{{ route('admin.owners.create') }}'" class="text-white bg-red-500 border-0 py-2 px-8 focus:outline-none hover:bg-red-600 rounded text-lg">新規登録</button>
                             </div>
@@ -23,6 +23,7 @@
                                             <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">Email</th>
                                             <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">Created</th>
                                             <th class="px-4 py-3 title-font tracking-wider font-medium text-black bg-gray-100"></th>
+                                            <th class="px-4 py-3 title-font tracking-wider font-medium text-black bg-gray-100"></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -32,8 +33,15 @@
                                                 <td class="px-4 py-3">{{ $owner->email }}</td>
                                                 <td class="px-4 py-3">{{ $owner->created_at->diffForHumans() }}</td>
                                                 <td class="px-4 py-3">
-                                                    <button onclick="location.href='{{ route('admin.owners.edit', ['owner' => $owner->id]) }}'" class="text-white bg-red-400 border-0 py-2 px-4 focus:outline-none hover:bg-red-500 rounded">編集</button>
+                                                    <button onclick="location.href='{{ route('admin.owners.edit', ['owner' => $owner->id]) }}'" class="text-white bg-green-400 border-0 py-2 px-4 focus:outline-none hover:bg-green-500 rounded">編集</button>
                                                 </td>
+                                                <form id="delete_{{ $owner->id }}" method="post" action="{{ route('admin.owners.destroy', ['owner' => $owner->id]) }}">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <td class="px-4 py-3">
+                                                        <a href="#" data-id="{{ $owner->id }}" onclick="deletePost(this)" class="text-white bg-red-400 border-0 py-2 px-4 focus:outline-none hover:bg-red-500 rounded">削除</a>
+                                                    </td>
+                                                </form>
                                             </tr>
                                         @endforeach
                                     </tbody>
@@ -45,4 +53,12 @@
             </div>
         </div>
     </div>
+    <script>
+        function deletePost(e) {
+            'use strict';
+            if (confirm('削除してもよろしいですか？')) {
+                document.getElementById(`delete_${e.dataset.id}`).submit();
+            }
+        }
+    </script>
 </x-app-layout>
