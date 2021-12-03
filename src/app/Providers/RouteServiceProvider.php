@@ -17,7 +17,14 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
+//    user アカウントログイン時のリダイレクト先
     public const HOME = '/dashboard';
+
+//    admin アカウントログイン時のリダイレクト先
+    public const ADMIN_HOME = '/admin/dashboard';
+
+//    owner アカウントログイン時のリダイレクト先
+    public const OWNER_HOME = '/owner/dashboard';
 
     /**
      * The controller namespace for the application.
@@ -43,9 +50,26 @@ class RouteServiceProvider extends ServiceProvider
                 ->namespace($this->namespace)
                 ->group(base_path('routes/api.php'));
 
-            Route::middleware('web')
+            // user login
+            Route::prefix('/')
+                ->as('user.')
+                ->middleware('web')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/web.php'));
+
+            // admin login
+            Route::prefix('admin')
+                ->as('admin.')
+                ->middleware('web')
+                ->namespace($this->namespace)
+                ->group(base_path('routes/admin.php'));
+
+            // owner login
+            Route::prefix('owner')
+                ->as('owner.')
+                ->middleware('web')
+                ->namespace($this->namespace)
+                ->group(base_path('routes/owner.php'));
         });
     }
 
