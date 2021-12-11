@@ -1,7 +1,7 @@
 <div>
-    @if(empty($shop->filename))
+    @if(empty($filename))
         <img src="{{ asset('images/no_image.jpg') }}" alt="NoImage" />
     @else
-        <img src="{{ asset("storage/shop/{$shop->filename}") }}" alt="ShopImage" />
+        <img src="{{ asset("storage/shops/{$filename}") }}" alt="ShopImage" />
     @endif
 </div>
