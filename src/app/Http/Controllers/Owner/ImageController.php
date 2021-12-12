@@ -69,12 +69,29 @@ class ImageController extends Controller
 
     public function edit($id)
     {
-        //
+        $image = Image::findOrFail($id);
+
+        return view('owner.images.edit', compact('image'));
     }
 
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'title' => ['string', 'max:50'],
+        ]);
+
+        // 各項目のアップデート
+        $image = Image::findOrFail($id);
+        $image->title = $request->title;
+
+        $image->save();
+
+        return redirect()
+            ->route('owner.images.index')
+            ->with([
+                'message' => "{$image->title} を更新しました。",
+                'status' => 'info',
+            ]);
     }
 
     public function destroy($id)
