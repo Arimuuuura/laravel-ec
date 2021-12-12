@@ -20,6 +20,9 @@
                     <x-nav-link :href="route('owner.shops.index')" :active="request()->routeIs('owner.shops.index')">
                         Shop Info
                     </x-nav-link>
+                    <x-nav-link :href="route('owner.images.index')" :active="request()->routeIs('owner.images.index')">
+                        Images
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -73,6 +76,9 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('owner.shops.index')" :active="request()->routeIs('owner.shops.index')">
                 Shop Info
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('owner.images.index')" :active="request()->routeIs('owner.images.index')">
+                Shop Images
             </x-responsive-nav-link>
         </div>
 
