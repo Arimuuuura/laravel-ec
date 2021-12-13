@@ -16,16 +16,22 @@ $ git clone https://github.com/y-arimura1222/laravel-ec.git
 $ cd laravel-ec
 $ cp .env.example .env
 $ cp src/.env.example src/.env
+$ cp -r src/public/images src/storage/app/public/products
+$ cp -r src/public/images src/storage/app/public/shops
 $ docker-compose up -d --build
 $ docker-compose exec app sh
+$ composer install
 $ php artisan key:generate
+$ php artisan migrate:fresh --seed
 $ exit
 
 web :
 http://localhost:8080
-
 phpMyAdmin :
 http://localhost:8888/
+
+<!-- docker compose down -->
+$ docker-compose down
 ```
 
 ### If you want to create your own environment using this docker-compose
