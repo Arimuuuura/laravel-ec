@@ -21,7 +21,10 @@
                         Shop Info
                     </x-nav-link>
                     <x-nav-link :href="route('owner.images.index')" :active="request()->routeIs('owner.images.index')">
-                        Images
+                        Shop Images
+                    </x-nav-link>
+                    <x-nav-link :href="route('owner.products.index')" :active="request()->routeIs('owner.products.index')">
+                        Shop Products
                     </x-nav-link>
                 </div>
             </div>
@@ -79,6 +82,9 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('owner.images.index')" :active="request()->routeIs('owner.images.index')">
                 Shop Images
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('owner.products.index')" :active="request()->routeIs('owner.products.index')">
+                Shop Products
             </x-responsive-nav-link>
         </div>
 
