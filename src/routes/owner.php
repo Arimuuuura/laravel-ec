@@ -10,6 +10,7 @@ use App\Http\Controllers\Owner\Auth\RegisteredUserController;
 use App\Http\Controllers\Owner\Auth\VerifyEmailController;
 use App\Http\Controllers\Owner\ShopController;
 use App\Http\Controllers\Owner\ImageController;
+use App\Http\Controllers\Owner\ProductController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -25,6 +26,11 @@ Route::prefix('shops')
 
 // middleware でログイン確認
 Route::resource('images', ImageController::class)
+    ->middleware('auth:owners')
+    ->except(['show']);
+
+// middleware でログイン確認
+Route::resource('products', ProductController::class)
     ->middleware('auth:owners')
     ->except(['show']);
 
