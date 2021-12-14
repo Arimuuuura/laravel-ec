@@ -27,6 +27,7 @@
                                     </select>
                                 </div>
                             </div>
+                            <x-select-image name="image1" />
                             <div class="p-2 w-full mt-4 flex justify-around">
                                 <button type="button" onclick="location.href='{{ route('owner.products.index') }}'" class="text-black bg-gray-200 border-0 py-2 px-8 focus:outline-none hover:bg-gray-400 rounded text-lg">戻る</button>
                                 <button type="submit" class="text-white bg-red-500 border-0 py-2 px-8 focus:outline-none hover:bg-red-600 rounded text-lg">登録</button>
