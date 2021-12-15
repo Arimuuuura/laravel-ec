@@ -14,25 +14,23 @@ Laravel    : 8.*
 ```angular2html
 $ git clone https://github.com/y-arimura1222/laravel-ec.git
 $ cd laravel-ec
-$ cp .env.example .env
-$ cp src/.env.example src/.env
-$ cp -r src/public/images src/storage/app/public/products
-$ cp -r src/public/images src/storage/app/public/shops
-$ docker-compose up -d --build
-$ docker-compose exec app sh
-$ composer install
-$ php artisan key:generate
-$ php artisan migrate:fresh --seed
-$ exit
+$ make init
 
 web :
 http://localhost:8080
 phpMyAdmin :
 http://localhost:8888/
+```
+
+## If not the first time
+```angula
+<!-- docker compose up -->
+$ make up
 
 <!-- docker compose down -->
-$ docker-compose down
+$ make down
 ```
+You can know the contents of the command with Makefile
 
 ### If you want to create your own environment using this docker-compose
 ```angular2html
