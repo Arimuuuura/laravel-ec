@@ -20,5 +20,18 @@ composer require intervention/image
 echo "<-- finish install intervention/image -->"
 
 echo "<-- start install npm -->"
-npm install && npm run dev
+npm install
 echo "<-- finish install npm -->"
+
+# 簡易なモーダルを作成する es6 module
+echo "<-- start install micromodal -->"
+npm install micromodal
+echo "<-- finish install micromodal -->"
+
+echo "<-- start npm compile -->"
+npm run dev
+echo "<-- finish npm compile -->"
+
+echo "<-- start Tailwind purge -->"
+npm run prod
+echo "<-- finish Tailwind purge -->"
