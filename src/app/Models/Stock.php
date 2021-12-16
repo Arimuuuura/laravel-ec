@@ -11,4 +11,10 @@ class Stock extends Model
 
     // 変更が頻繁に起こる table (トランザクションの頭文字で t_ )
     protected $table = 't_stocks';
+
+    protected $fillable = [
+        'product_id',
+        'type',
+        'quantity',
+    ];
 }
