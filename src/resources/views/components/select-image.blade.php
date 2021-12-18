@@ -45,7 +45,9 @@ $c_Id = $currentId ?? '';
 <div class="flex justify-around items-center mb-4">
     <a class="py-2 px-4 bg-gray-200" data-micromodal-trigger="{{$modal}}" href="javascript:;">ファイルを選択</a>
     <div class="w-1/4">
-        <img @if($c_Image) src='{{ asset("storage/products/{$c_Image}") }}' @else src="" @endif alt="image" id="{{ $name }}_thumbnail">
+        @if($c_Image)
+            <img src='{{ asset("storage/products/{$c_Image}") }}' alt="image" id="{{ $name }}_thumbnail">
+        @endif
     </div>
 </div>
 <input type="hidden" id="{{ $name }}_hidden" name="{{ $name }}" value="{{ $c_Id }}">
