@@ -10,6 +10,9 @@ up:
 down:
 	docker-compose down
 
+app:
+	docker-compose exec app sh
+
 init:
 	cp $(ENV_EXAMPLE) $(ENV)
 	cp src/$(ENV_EXAMPLE) src/$(ENV)
