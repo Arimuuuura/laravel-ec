@@ -13,6 +13,12 @@ down:
 app:
 	docker-compose exec app sh
 
+config-c:
+	docker-compose exec app php artisan config:clear
+
+cache-c:
+	docker-compose exec app php artisan cache:clear
+
 init:
 	cp $(ENV_EXAMPLE) $(ENV)
 	cp src/$(ENV_EXAMPLE) src/$(ENV)
