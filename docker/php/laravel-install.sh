@@ -28,6 +28,11 @@ echo "<-- start install micromodal -->"
 npm install micromodal
 echo "<-- finish install micromodal -->"
 
+# Vanilla js でスライダーを作る
+echo "<-- start install swiper -->"
+npm install swiper
+echo "<-- finish install swiper -->"
+
 echo "<-- start npm compile -->"
 npm run dev
 echo "<-- finish npm compile -->"
