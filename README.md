@@ -1,6 +1,7 @@
 # Laravel8 で作る ECサイト
 
 ## Information
+### Version
 ```
 mysql      : 5.7
 php        : 7.4
@@ -10,6 +11,33 @@ Laravel    : 8.*
     - laravel-debugbar
     - laravel/breeze : 1.*
 ```
+### Dummy data
+```angular2html
+admin:
+    url: http://localhost:8080/admin
+    user: admin1
+    email: admin1@admin.com
+    password: password123
+
+owner:
+    url: http://localhost:8080/owner
+    user: owner1
+    email: owner1@admin.com
+    password: password123
+
+user:
+    url: http://localhost:8080/
+    user: user1
+    email: user1@user.com
+    password: password123
+    
+credit card:
+    email: user1@user.com
+    number: 4242424242424242
+    deadline: 12 / 30
+    sec number: 123
+    name: user1
+```
 
 ### If you want to try a payment service, you need to register with stripe and get your public and secret keys.
 **stripe**(payment service): `https://dashboard.stripe.com/`
@@ -18,6 +46,7 @@ Laravel    : 8.*
 ```angular2html
 $ git clone https://github.com/y-arimura1222/laravel-ec.git
 $ cd laravel-ec
+$ make init
 
 <!--
 If you want to try the payment service,
@@ -26,8 +55,6 @@ please add the public key and secret key of stripe.
     STRIPE_PUBLIC_KEY
     STRIPE_SECRET_KEY
  -->
-
-$ make init
 
 web :
 http://localhost:8080
