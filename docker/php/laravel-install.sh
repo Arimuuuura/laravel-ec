@@ -19,6 +19,11 @@ echo "<-- start install intervention/image -->"
 composer require intervention/image
 echo "<-- finish install intervention/image -->"
 
+# 決済サービス
+echo "<-- start install stripe -->"
+composer require stripe/stripe-php
+echo "<-- finish install stripe -->"
+
 echo "<-- start install npm -->"
 npm install
 echo "<-- finish install npm -->"
