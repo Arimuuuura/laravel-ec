@@ -39,6 +39,10 @@ credit card:
     name: user1
 ```
 
+### composition
+
+`https://docs.google.com/spreadsheets/d/1_U7_D66RUrbEjUXhBgbW1zMhpfZmCmd4r-jybHbrB6M/edit?usp=sharing`
+
 ### If you want to try a payment service, you need to register with stripe and get your public and secret keys.
 **stripe**(payment service): `https://dashboard.stripe.com/`
 
