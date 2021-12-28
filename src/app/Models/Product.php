@@ -118,4 +118,19 @@ class Product extends Model
             return ;
         }
     }
+
+    public function scopeSearchKeyword($query, $keyword)
+    {
+        if (!is_null($keyword)) {
+            $spaceConvert = mb_convert_kana($keyword, 's');
+            $keywords = preg_split('/[\s]+/', $spaceConvert, -1, PREG_SPLIT_NO_EMPTY);
+            foreach ($keywords as $keyword) {
+                $query->where('products.name', 'like', "%{$keyword}%");
+            }
+
+            return $query;
+        } else {
+            return ;
+        }
+    }
 }
