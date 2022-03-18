@@ -49,6 +49,7 @@ credit card:
 ```angular2html
 $ git clone https://github.com/y-arimura1222/laravel-ec.git
 $ cd laravel-ec
+$ cp .env.sample .env
 $ make init
 
 <!--
